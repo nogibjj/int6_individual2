@@ -40,6 +40,4 @@ jobs:
         path: target/release/int6_individual2
     - name: pull repository
       run: git pull
-    - name: add rust logs
-      run: make generate_and_push
     
