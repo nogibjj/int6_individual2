@@ -1,0 +1,14 @@
+[package]
+name = "int6_individual2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest = { version = "0.11", features = ["blocking"] }
+csv = "1.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+rusqlite = "0.26.3"
+prettytable-rs = "0.10" 
+assert_cmd = "2.0"
