@@ -53,7 +53,4 @@ find_user:
 
 .PHONY: find_user
 
-deploy:
-	#deploy goes here
-
 all: format lint test run
