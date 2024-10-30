@@ -1,5 +1,5 @@
 ## int6_individual2
-[![CI](https://github.com/nogibjj/int6_miniproject5/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/int6_miniproject5/actions/workflows/cicd.yml)
+[![CI/CD Pipeline](https://github.com/nogibjj/int6_individual2/actions/workflows/ci.yml/badge.svg)](https://github.com/nogibjj/int6_individual2/actions/workflows/ci.yml)
 ### File Structure
 ```
 int6_individual2
@@ -46,9 +46,6 @@ The purpose of this project is to create a basic ETL pipeline with CRUD operatio
 Project dependencies can be found in Cargo.toml. Notable dependencies include **rusqlite** for connecting to SQLite database, **csv** for extracting and loading data as a csv format, and **prettytable-rs** for better formatting of outputs.
 
 ## Preparation
-1. Open codespaces 
-2. Wait for container to be built and virtual environment to be activated
-
 ### Rust Preparation and Installation
 #### Option 1: Download Prerequisites
 * (Open Codespaces)
@@ -105,6 +102,9 @@ These functions are tested in tests/my_tests.rs. To make sure github actions is 
 
 ## Use of LLM
 I used GitHub copilot to transform my previous Python ETL functions into Rust. While using an LLM to generate code helped make the process more efficient, I realized that it was important to be very specific when prompting the LLM. In order for the suggested code to integrate with my existing project, I had to perform additional checks to make sure all relevant dependencies were included and filenames were consistent. GitHub copilot was successful in producing template code for my Rust ETL implementation and allowed me to focus on refining the more logical components of this project rather than spending time on syntax. 
+
+## Video Demo
+[Demo Link](https://www.loom.com/share/cb0cbcb16bab49f198f89b62acbe01ea?sid=470ce38a-8f37-453d-a51d-a90b7da5f788)
 
 ## References 
 template from: https://github.com/nogibjj/int6_miniproject5   
