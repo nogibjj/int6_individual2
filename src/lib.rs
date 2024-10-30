@@ -292,6 +292,7 @@ pub fn query_frequent_soda() -> Result<()> {
             Cell::new(&fries_freq.to_string()),
         ]));
     }
+    println!("Records with Frequent Soda Consumption:");
     table.printstd();
     Ok(())
 }
@@ -299,20 +300,22 @@ pub fn query_frequent_soda() -> Result<()> {
 // Retrieve and display records with heart disease
 pub fn query_heart_disease() -> Result<()> {
     let conn = Connection::open("Nutrition.db")?;
-    let mut stmt = conn.prepare("SELECT ID, EGGSFREQ, GREENSALADFREQ, FRIESFREQ, SODAFREQ FROM Nutrition WHERE heart_disease = 'Yes' LIMIT 5")?;
+    let mut stmt = conn.prepare("SELECT ID, heart_disease, EGGSFREQ, GREENSALADFREQ, FRIESFREQ, SODAFREQ FROM Nutrition WHERE heart_disease = 'Yes' LIMIT 5")?;
     let rows = stmt.query_map([], |row| {
         Ok((
             row.get::<_, i32>(0)?,
-            row.get::<_, i32>(1)?,
+            row.get::<_, String>(1)?,
             row.get::<_, i32>(2)?,
             row.get::<_, i32>(3)?,
             row.get::<_, i32>(4)?,
+            row.get::<_, i32>(5)?,
         ))
     })?;
 
     let mut table = Table::new();
     table.add_row(row![
         "ID",
+        "Heart Disease",
         "Eggs Frequency",
         "Salad Frequency",
         "Fries Frequency",
@@ -320,15 +323,17 @@ pub fn query_heart_disease() -> Result<()> {
     ]);
 
     for row in rows {
-        let (id, eggs_freq, salad_freq, fries_freq, soda_freq) = row?;
+        let (id, heart_disease, eggs_freq, salad_freq, fries_freq, soda_freq) = row?;
         table.add_row(Row::new(vec![
             Cell::new(&id.to_string()),
+            Cell::new(&heart_disease.to_string()),
             Cell::new(&eggs_freq.to_string()),
             Cell::new(&salad_freq.to_string()),
             Cell::new(&fries_freq.to_string()),
             Cell::new(&soda_freq.to_string()),
         ]));
     }
+    println!("Records with Heart Disease:");
     table.printstd();
     Ok(())
 }
